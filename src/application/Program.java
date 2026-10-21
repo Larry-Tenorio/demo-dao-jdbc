@@ -9,14 +9,11 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		Department obj = new Department(1, "Books");
-		System.out.println(obj);
-		
-		Seller seller = new Seller();
-		System.out.println(seller);
-		
-		SellerDao sellerDao	=  DaoFactory.createSellerDao();
+	SellerDao sellerDao = DaoFactory.createSellerDao();
+	
+	Seller seller = sellerDao.findByid(3);
+	
+	System.out.println(seller);
 		
 	}
-
 }
