@@ -36,7 +36,7 @@ public class SellerDaoJDBC implements SellerDao {
 			st.setString(2, obj.getEmail());
 			st.setDate(3, new java.sql.Date(obj.getBirthDay().getTime()));
 			st.setDouble(4, obj.getBaseSalary());
-			st.setInt(5, obj.getDepartment().gerId());
+			st.setInt(5, obj.getDepartment().getId());
 
 			int rowsAffected = st.executeUpdate();
 
@@ -71,7 +71,7 @@ public class SellerDaoJDBC implements SellerDao {
 			st.setString(2, obj.getEmail());
 			st.setDate(3, new java.sql.Date(obj.getBirthDay().getTime()));
 			st.setDouble(4, obj.getBaseSalary());
-			st.setInt(5, obj.getDepartment().gerId());
+			st.setInt(5, obj.getDepartment().getId());
 			st.setInt(6, obj.getId());
 
 			st.executeUpdate();
@@ -189,7 +189,7 @@ public class SellerDaoJDBC implements SellerDao {
 			st = conn.prepareStatement(" select seller.*, department.Name as DepName "
 					+ " from seller INNER JOIN department " + " on seller.DepartmentId = department.Id "
 					+ " where DepartmentId = ?" + " order by name");
-			st.setInt(1, department.gerId());
+			st.setInt(1, department.getId());
 
 			rs = st.executeQuery();
 
